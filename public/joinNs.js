@@ -5,7 +5,7 @@ function joinNs(endpoint) {
     // Remove event listener before it's added again
     document.querySelector('#user-input').removeEventListener('submit', formSubmission)
   }
-  nsSocket = io(`http://localhost:9000${endpoint}`)
+  nsSocket = io(`${endpoint}`)
   nsSocket.on('nsRoomLoad', (nsRooms) => {
     let roomList = document.querySelector('.room-list')
     roomList.innerHTML = []
