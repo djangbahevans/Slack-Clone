@@ -10,7 +10,10 @@ app.use('/', (req, res) => {
     res.redirect('/chat.html')
 })
 
-const expressServer = app.listen(process.env.PORT | 9000);
+const PORT = process.env.PORT || 9000
+
+const expressServer = app.listen(PORT);
+console.log(`Listening on ${PORT}`)
 
 const io = socketio(expressServer);
 
