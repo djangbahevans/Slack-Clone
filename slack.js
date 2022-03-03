@@ -6,7 +6,12 @@ let namespaces = require('./data/namespaces');
 
 app.use(express.static(__dirname + '/public'));
 
-const expressServer = app.listen(9000);
+app.use('/', (req, res) => {
+    res.redirect('/chat.html')
+})
+
+const expressServer = app.listen(process.env.PORT | 9000);
+
 const io = socketio(expressServer);
 
 io.on('connection', (socket) => {
